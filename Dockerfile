@@ -1,9 +1,6 @@
-FROM ubuntu:latest
-MAINTAINER Angello Maggio "angellom@jfrog.com"
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
+FROM python:3.4-alpine
+MAINTAINER Saravanakumar "saravanakumar.k@dsrc.co.in"
 ADD . /flask-app
 WORKDIR /flask-app
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["flask-docker.py"]
+CMD ["python", "flask-docker.py"]
